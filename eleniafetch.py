@@ -8,6 +8,13 @@ class EleniaFetch:
     auth = None
     def __init__(user, password):
         auth = self.login(user, password)
+        loginheaders = {
+            'form': 'login',
+            'process': 'login',
+            'CustId': user,
+            'pwd': password
+        }
+        loginresponse = requests.post(LOGIN_URL, headers=loginheaders)
         
     def login(self, user, password):
     """
